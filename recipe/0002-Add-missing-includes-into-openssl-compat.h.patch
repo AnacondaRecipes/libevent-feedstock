@@ -1,0 +1,25 @@
+From 1f26f489f569ce4222fde08c2d56ab9145d582af Mon Sep 17 00:00:00 2001
+From: Nehal J Wani <nehaljw.kkd1@gmail.com>
+Date: Wed, 22 Nov 2017 10:33:15 +0300
+Subject: [PATCH] Add missing include to openssl-compat.h
+
+---
+ openssl-compat.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/openssl-compat.h b/openssl-compat.h
+index 69afc716..37050e75 100644
+--- a/openssl-compat.h
++++ b/openssl-compat.h
+@@ -1,6 +1,8 @@
+ #ifndef OPENSSL_COMPAT_H
+ #define OPENSSL_COMPAT_H
+ 
++#include "util-internal.h"
++
+ #if OPENSSL_VERSION_NUMBER < 0x10100000L
+ 
+ static inline BIO_METHOD *BIO_meth_new(int type, const char *name)
+-- 
+2.14.1
+

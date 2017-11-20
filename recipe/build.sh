@@ -20,8 +20,8 @@ fi
 chmod +x ./autogen.sh
 
 ./autogen.sh
-./configure --prefix="${PREFIX}"
-make
+./configure --prefix="${PREFIX}" --host="${HOST}"
+make -j${CPU_COUNT}
 
 #
 # Seems to hang on Mac builds. So have commented it for now.
