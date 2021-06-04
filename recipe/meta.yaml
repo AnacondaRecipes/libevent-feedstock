@@ -28,7 +28,7 @@ requirements:
     - patch       # [unix]
     - cmake       # [win]
     - m2-patch    # [win]
-    - make
+    - make        # [unix]
     - {{ compiler('c') }}
     - openssl
   host:
