@@ -1,4 +1,4 @@
-{% set version = "2.1.10" %}
+{% set version = "2.1.12" %}
 
 package:
   name: libevent
@@ -7,7 +7,7 @@ package:
 source:
   fn: libevent-{{ version }}.tar.gz
   url: https://github.com/libevent/libevent/archive/release-{{ version }}-stable.tar.gz
-  sha256: 52c9db0bc5b148f146192aa517db0762b2a5b3060ccc63b2c470982ec72b9a79
+  sha256: 7180a979aaa7000e1264da484f712d403fcf7679b1e9212c4e3d09f5c93efc24
   patches:
     - 0374b55942e533a3c3997439481a8d05d6c8f729.patch
     - 0001-Fix-destination-for-DLLs-lib-bin.patch
