@@ -39,7 +39,7 @@ requirements:
 test:
   requires:
     - python 2.7  # [win and vc<14]
-    - python 3.7  # [not (win and vc<14)]
+    - python 3.8  # [not (win and vc<14)]
 
   source_files:
     - event_rpcgen.py
