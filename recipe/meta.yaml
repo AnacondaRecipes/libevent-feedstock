@@ -14,7 +14,7 @@ source:
     - build-with-no-undefined.patch  # [osx and arm64]
 
 build:
-  number: 2
+  number: 3
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/libevent/
     - {{ pin_subpackage('libevent', max_pin='x.x.x') }}
@@ -26,6 +26,7 @@ requirements:
     - automake    # [unix]
     - libtool     # [unix]
     - cmake       # [win]
+    - patch       # [unix]
     - m2-patch    # [win]
     - make
     - {{ compiler('c') }}
@@ -39,7 +40,7 @@ requirements:
 test:
   requires:
     - python 2.7  # [win and vc<14]
-    - python 3.6  # [not (win and vc<14)]
+    - python <3.10  # [not (win and vc<14)]
 
   source_files:
     - event_rpcgen.py
