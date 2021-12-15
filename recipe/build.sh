@@ -16,7 +16,6 @@ else
     export LIBRARY_SEARCH_VAR=LD_LIBRARY_PATH
 fi
 
-
 chmod +x ./autogen.sh
 
 ./autogen.sh
