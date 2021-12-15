@@ -1,0 +1,4 @@
+aggregate_check: false
+
+upload_channels:
+  - distro-tooling
