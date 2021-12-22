@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 # Needed to ensure our OpenSSL and
 # not the system one is used on OS X.
