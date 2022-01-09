@@ -22,6 +22,7 @@ cd build
 
 cmake ${CMAKE_ARGS} \
       -DCMAKE_BUILD_TYPE=Release \
+      -DEVENT__LIBRARY_TYPE=SHARED \
       -DCMAKE_PREFIX_PATH=${PREFIX} \
       -DCMAKE_INSTALL_PREFIX=${PREFIX} \
       ${SRC_DIR}
