@@ -17,10 +17,15 @@ else
     export LIBRARY_SEARCH_VAR=LD_LIBRARY_PATH
 fi
 
-chmod +x ./autogen.sh
+mkdir build
+cd build
 
-./autogen.sh
-./configure --prefix="${PREFIX}" --build=${BUILD} --host="${HOST}" --disable-static
+cmake ${CMAKE_ARGS} \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_PREFIX_PATH=${PREFIX} \
+      -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+      ${SRC_DIR}
+
 make -j${CPU_COUNT}
 
 #
