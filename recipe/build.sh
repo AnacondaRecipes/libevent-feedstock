@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 # Needed to ensure our OpenSSL and
 # not the system one is used on OS X.
@@ -16,11 +17,16 @@ else
     export LIBRARY_SEARCH_VAR=LD_LIBRARY_PATH
 fi
 
+mkdir build
+cd build
 
-chmod +x ./autogen.sh
+cmake ${CMAKE_ARGS} \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DEVENT__LIBRARY_TYPE=SHARED \
+      -DCMAKE_PREFIX_PATH=${PREFIX} \
+      -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+      ${SRC_DIR}
 
-./autogen.sh
-./configure --prefix="${PREFIX}" --build=${BUILD} --host="${HOST}" --disable-static
 make -j${CPU_COUNT}
 
 #
