@@ -10,9 +10,10 @@ source:
   sha256: 7180a979aaa7000e1264da484f712d403fcf7679b1e9212c4e3d09f5c93efc24
   patches:
     - 0001-Fix-destination-for-DLLs-lib-bin.patch
+    - patches/0002-openssl3.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/libevent/
     - {{ pin_subpackage('libevent', max_pin='x.x.x') }}
@@ -29,12 +30,10 @@ requirements:
     - cmake
     - m2-patch    # [win]
     - {{ compiler('c') }}
-    - openssl
   host:
-    - openssl
+    - openssl {{ openssl }}
   run:
-    # Will be taken care of by run_exports
-    # - openssl 1.0.*
+    - openssl 3.*
 
 test:
   requires:
@@ -90,7 +89,7 @@ test:
     - python event_rpcgen.py test/regress.rpc test/regress.gen.h test/regress.gen.c
 
 about:
-  home: http://libevent.org/
+  home: https://libevent.org/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -100,9 +99,12 @@ about:
     reached. Furthermore, libevent also supports callbacks due to signals or
     regular timeouts.
   summary: An event notification library.
-  doc_url: http://www.wangafu.net/~nickm/libevent-1.4/doxygen/html/
+  doc_url: http://www.wangafu.net/~nickm/libevent-2.1/doxygen/html/
   dev_url: https://github.com/libevent/libevent
 
 extra:
   recipe-maintainers:
     - jakirkham
+
+  skip-lints:
+    - http_url
