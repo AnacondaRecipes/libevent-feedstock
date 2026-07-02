@@ -13,6 +13,7 @@ cmake -G "NMake Makefiles" ^
          -DCMAKE_BUILD_TYPE=Release ^
          -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
          -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+         -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ^
          -DEVENT__DISABLE_TESTS=ON ^
          %SRC_DIR%
 if errorlevel 1 exit 1
